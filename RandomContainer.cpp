@@ -7,6 +7,16 @@ RandomContainer::RandomContainer(size_t length, int lowerBound, int upperBound) 
 		sequence.at(i) = distr(rd);
 }
 
+void RandomContainer::sort()
+{
+	std::sort(sequence.begin(), sequence.end());
+}
+
+void RandomContainer::sortDesc()
+{
+	std::sort(sequence.begin(), sequence.end(), [](int a, int b) {return a > b; });
+}
+
 std::ostream& operator<<(std::ostream& stream, const RandomContainer& cont)
 {
 	for (auto item : cont.sequence)
